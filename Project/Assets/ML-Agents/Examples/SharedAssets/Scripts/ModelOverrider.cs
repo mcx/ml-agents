@@ -303,8 +303,8 @@ namespace Unity.MLAgentsExamples
         ModelAsset LoadSentisModel(byte[] rawModel)
         {
             var asset = ScriptableObject.CreateInstance<ModelAsset>();
-            asset.modelAssetData = ScriptableObject.CreateInstance<ModelAssetData>();
-            asset.modelAssetData.value = rawModel;
+            // asset.modelAssetData = ScriptableObject.CreateInstance<ModelAssetData>();
+            // asset.modelAssetData.value = rawModel;
             return asset;
         }
 

@@ -10,13 +10,13 @@ from mlagents.trainers.settings import TorchSettings
 @pytest.mark.parametrize(
     "device_str, expected_type, expected_index, expected_tensor_type",
     [
-        ("cpu", "cpu", None, torch.FloatTensor),
+        ("cpu", "cpu", None, torch.float32),
         ("cuda", "cuda", None, torch.cuda.FloatTensor),
         ("cuda:42", "cuda", 42, torch.cuda.FloatTensor),
-        ("opengl", "opengl", None, torch.FloatTensor),
+        ("opengl", "opengl", None, torch.float32),
     ],
 )
-@mock.patch.object(torch, "set_default_tensor_type")
+@mock.patch.object(torch, "set_default_dtype")
 def test_set_torch_device(
     mock_set_default_tensor_type,
     device_str,

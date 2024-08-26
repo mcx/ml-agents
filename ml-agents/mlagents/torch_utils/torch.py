@@ -52,9 +52,10 @@ def set_torch_config(torch_settings: TorchSettings) -> None:
     _device = torch.device(device_str)
 
     if _device.type == "cuda":
-        torch.set_default_tensor_type(torch.cuda.FloatTensor)
+        torch.set_default_device(_device.type)
+        torch.set_default_dtype(torch.cuda.FloatTensor)
     else:
-        torch.set_default_tensor_type(torch.FloatTensor)
+        torch.set_default_dtype(torch.float32)
     logger.debug(f"default Torch device: {_device}")
 
 

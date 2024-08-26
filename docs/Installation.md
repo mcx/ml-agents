@@ -25,7 +25,7 @@ The ML-Agents Toolkit contains several components:
 Consequently, to install and use the ML-Agents Toolkit you will need to:
 
 - Install Unity (2023.2 or later)
-- Install Python (3.10.12 or higher)
+- Install Python (>= 3.10.1, <=3.10.12) - we recommend using 3.10.12
 - Clone this repository (Recommended for the latest version and bug fixes)
   - __Note:__ If you do not clone the repository, then you will not be
   able to access the example environments and training configurations or the
@@ -76,7 +76,15 @@ git clone --branch release_21 https://github.com/Unity-Technologies/ml-agents.gi
 ```
 
 The `--branch release_21` option will switch to the tag of the latest stable
-release. Omitting that will get the `main` branch which is potentially unstable.
+release. Omitting that will get the `develop` branch which is potentially unstable.
+However, if you find that a release branch does not work, the recommendation is to use
+the `develop` branch as it may have potential fixes for bugs and dependency issues.
+
+(Optional to get bleeding edge)
+
+```sh
+git clone --branch https://github.com/Unity-Technologies/ml-agents.git
+```
 
 #### Advanced: Local Installation for Development
 

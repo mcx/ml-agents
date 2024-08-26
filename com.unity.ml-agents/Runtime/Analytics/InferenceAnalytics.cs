@@ -153,15 +153,15 @@ namespace Unity.MLAgents.Analytics
         )
         {
             var sentisModel = ModelLoader.Load(nnModel);
+            using var sentisModelInfo = new SentisModelInfo(sentisModel);
             var inferenceEvent = new InferenceEvent();
 
             // Hash the behavior name so that there's no concern about PII or "secret" data being leaked.
             inferenceEvent.BehaviorName = AnalyticsUtils.Hash(k_VendorKey, behaviorName);
 
-            inferenceEvent.SentisModelSource = sentisModel.IrSource;
-            inferenceEvent.SentisModelVersion = sentisModel.IrVersion;
+            inferenceEvent.SentisModelVersion = sentisModelInfo.Version;
             inferenceEvent.SentisModelProducer = sentisModel.ProducerName;
-            inferenceEvent.MemorySize = (int)((TensorFloat)sentisModel.GetTensorByName(TensorNames.MemorySize))[0];
+            inferenceEvent.MemorySize = sentisModelInfo.MemorySize;
             inferenceEvent.InferenceDevice = (int)inferenceDevice;
 
             // TODO deprecate tensorflow conversion
@@ -209,7 +209,7 @@ namespace Unity.MLAgents.Analytics
             long totalWeightsSizeInBytes = 0;
             for (var c = 0; c < sentisModel.constants.Count; c++)
             {
-                totalWeightsSizeInBytes += sentisModel.constants[c].length;
+                totalWeightsSizeInBytes += sentisModel.constants[c].lengthBytes;
             }
             return totalWeightsSizeInBytes;
         }
@@ -265,14 +265,9 @@ namespace Unity.MLAgents.Analytics
         {
             var hash = new MLAgentsHash128();
 
-            // Limit the max number of float bytes that we hash for performance.
-            const int kMaxFloats = 256;
-
             foreach (var constant in sentisModel.constants)
             {
-                hash.Append(constant.name);
-                var numFloatsToHash = Mathf.Min(constant.weights.Length, kMaxFloats);
-                hash.Append(constant.weights.ToString());
+                hash.Append(constant.ToString());
             }
 
             return hash.ToString();

@@ -89,12 +89,9 @@ namespace Unity.MLAgents.Sensors
                 }
                 else
                 {
-                    if (m_Proxy.Device == DeviceType.GPU)
-                    {
-                        m_Proxy.data.MakeReadable();
-                    }
+                    m_Proxy.data.CompleteAllPendingOperations();
 
-                    ((TensorFloat)m_Proxy.data)[m_Batch, index + m_Offset] = value;
+                    ((Tensor<float>)m_Proxy.data)[m_Batch, index + m_Offset] = value;
                 }
             }
         }
@@ -109,12 +106,9 @@ namespace Unity.MLAgents.Sensors
                 }
                 else
                 {
-                    if (m_Proxy.Device == DeviceType.GPU)
-                    {
-                        m_Proxy.data.MakeReadable();
-                    }
+                    m_Proxy.data.CompleteAllPendingOperations();
 
-                    ((TensorFloat)m_Proxy.data)[m_Batch, ch, w] = value;
+                    ((Tensor<float>)m_Proxy.data)[m_Batch, ch, w] = value;
                 }
             }
         }
@@ -151,12 +145,9 @@ namespace Unity.MLAgents.Sensors
                 }
                 else
                 {
-                    if (m_Proxy.Device == DeviceType.GPU)
-                    {
-                        m_Proxy.data.MakeReadable();
-                    }
+                    m_Proxy.data.CompleteAllPendingOperations();
 
-                    ((TensorFloat)m_Proxy.data)[m_Batch, ch + m_Offset, h, w] = value;
+                    ((Tensor<float>)m_Proxy.data)[m_Batch, ch + m_Offset, h, w] = value;
                 }
             }
         }
@@ -178,15 +169,12 @@ namespace Unity.MLAgents.Sensors
             }
             else
             {
-                if (m_Proxy.Device == DeviceType.GPU)
-                {
-                    m_Proxy.data.MakeReadable();
-                }
+                m_Proxy.data.CompleteAllPendingOperations();
 
                 for (var index = 0; index < data.Count; index++)
                 {
                     var val = data[index];
-                    ((TensorFloat)m_Proxy.data)[m_Batch, index + m_Offset + writeOffset] = val;
+                    ((Tensor<float>)m_Proxy.data)[m_Batch, index + m_Offset + writeOffset] = val;
                 }
             }
         }
@@ -206,14 +194,11 @@ namespace Unity.MLAgents.Sensors
             }
             else
             {
-                if (m_Proxy.Device == DeviceType.GPU)
-                {
-                    m_Proxy.data.MakeReadable();
-                }
+                m_Proxy.data.CompleteAllPendingOperations();
 
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 0] = vec.x;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 1] = vec.y;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 2] = vec.z;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 0] = vec.x;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 1] = vec.y;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 2] = vec.z;
             }
         }
 
@@ -233,15 +218,12 @@ namespace Unity.MLAgents.Sensors
             }
             else
             {
-                if (m_Proxy.Device == DeviceType.GPU)
-                {
-                    m_Proxy.data.MakeReadable();
-                }
+                m_Proxy.data.CompleteAllPendingOperations();
 
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 0] = vec.x;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 1] = vec.y;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 2] = vec.z;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 3] = vec.w;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 0] = vec.x;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 1] = vec.y;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 2] = vec.z;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 3] = vec.w;
             }
         }
 
@@ -261,15 +243,12 @@ namespace Unity.MLAgents.Sensors
             }
             else
             {
-                if (m_Proxy.Device == DeviceType.GPU)
-                {
-                    m_Proxy.data.MakeReadable();
-                }
+                m_Proxy.data.CompleteAllPendingOperations();
 
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 0] = quat.x;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 1] = quat.y;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 2] = quat.z;
-                ((TensorFloat)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 3] = quat.w;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 0] = quat.x;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 1] = quat.y;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 2] = quat.z;
+                ((Tensor<float>)m_Proxy.data)[m_Batch, m_Offset + writeOffset + 3] = quat.w;
             }
         }
     }
