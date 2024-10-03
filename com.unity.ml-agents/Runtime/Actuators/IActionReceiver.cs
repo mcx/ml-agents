@@ -43,7 +43,7 @@ namespace Unity.MLAgents.Actuators
         /// <summary>
         /// Construct an <see cref="ActionBuffers"/> instance with the continuous and discrete actions that will
         /// be used.
-        /// /// </summary>
+        /// </summary>
         /// <param name="continuousActions">The continuous actions to send to an <see cref="IActionReceiver"/>.</param>
         /// <param name="discreteActions">The discrete actions to send to an <see cref="IActionReceiver"/>.</param>
         public ActionBuffers(float[] continuousActions, int[] discreteActions)
@@ -63,7 +63,7 @@ namespace Unity.MLAgents.Actuators
 
         /// <summary>
         /// Construct an <see cref="ActionBuffers"/> instance with <see cref="ActionSpec"/>. All values are initialized to zeros.
-        /// /// </summary>
+        /// </summary>
         /// <param name="actionSpec">The <see cref="ActionSpec"/>  to send to an <see cref="IActionReceiver"/>.</param>
         public ActionBuffers(ActionSpec actionSpec)
             : this(new ActionSegment<float>(new float[actionSpec.NumContinuousActions]),

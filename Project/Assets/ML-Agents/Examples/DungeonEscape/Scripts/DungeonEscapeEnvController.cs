@@ -38,7 +38,7 @@ public class DungeonEscapeEnvController : MonoBehaviour
     /// <summary>
     /// Max Academy steps before this platform resets
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The maximum steps before this platform resets.</returns>
     [Header("Max Environment Steps")] public int MaxEnvironmentSteps = 25000;
     private int m_ResetTimer;
 

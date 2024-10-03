@@ -52,7 +52,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// <summary>
         /// Creates a PhysicsSensorSettings with reasonable default values.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>`PhysicsSensorSettings` with reasonable default values.</returns>
         public static PhysicsSensorSettings Default()
         {
             return new PhysicsSensorSettings

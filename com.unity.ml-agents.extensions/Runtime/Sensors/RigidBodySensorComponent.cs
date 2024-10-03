@@ -38,7 +38,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// <summary>
         /// Creates a PhysicsBodySensor.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Corresponding sensors.</returns>
         public override ISensor[] CreateSensors()
         {
             var _sensorName = string.IsNullOrEmpty(sensorName) ? $"PhysicsBodySensor:{RootBody?.name}" : sensorName;
@@ -48,7 +48,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// <summary>
         /// Get the DisplayNodes of the hierarchy.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The `DisplayNodes` of the hierarchy.</returns>
         internal IList<PoseExtractor.DisplayNode> GetDisplayNodes()
         {
             return GetPoseExtractor().GetDisplayNodes();
@@ -57,7 +57,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// <summary>
         /// Lazy construction of the PoseExtractor.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Corresponding `RigidBodyPoseExtractor`</returns>
         RigidBodyPoseExtractor GetPoseExtractor()
         {
             if (m_PoseExtractor == null)

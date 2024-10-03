@@ -19,7 +19,7 @@ namespace Unity.MLAgents.Extensions.Input
         /// for pressed.
         /// </summary>
         /// <param name="action">The action associated with this adaptor to help determine the action space.</param>
-        /// <returns></returns>
+        /// <returns>ActionSpec with 1 branch of size 2.</returns>
         public ActionSpec GetActionSpecForInputAction(InputAction action)
         {
             return ActionSpec.MakeDiscrete(2);

@@ -150,7 +150,7 @@ namespace Unity.MLAgents.Demonstrations
         /// <param name="fileSystem"></param>
         /// <param name="demonstrationDirectory"></param>
         /// <param name="demonstrationName"></param>
-        /// <returns></returns>
+        /// <returns>Unique path.</returns>
         internal static string MakeDemonstrationFilePath(
             IFileSystem fileSystem, string demonstrationDirectory, string demonstrationName
         )
@@ -203,7 +203,7 @@ namespace Unity.MLAgents.Demonstrations
         /// Add additional DemonstrationWriter to the Agent. It is still up to the user to Close this
         /// DemonstrationWriters when recording is done.
         /// </summary>
-        /// <param name="demoWriter"></param>
+        /// <param name="demoWriter">`DemonstrationWriter` demonstation writer</param>
         public void AddDemonstrationWriterToAgent(DemonstrationWriter demoWriter)
         {
             var behaviorParams = GetComponent<BehaviorParameters>();
@@ -219,7 +219,7 @@ namespace Unity.MLAgents.Demonstrations
         /// Remove additional DemonstrationWriter to the Agent. It is still up to the user to Close this
         /// DemonstrationWriters when recording is done.
         /// </summary>
-        /// <param name="demoWriter"></param>
+        /// <param name="demoWriter">`DemonstrationWriter` demonstation writer</param>
         public void RemoveDemonstrationWriterFromAgent(DemonstrationWriter demoWriter)
         {
             m_Agent.DemonstrationWriters.Remove(demoWriter);

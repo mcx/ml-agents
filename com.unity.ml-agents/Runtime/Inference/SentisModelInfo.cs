@@ -97,7 +97,7 @@ namespace Unity.MLAgents.Inference
         /// <summary>
         /// Gets the Discrete Action Output Shape as a Tensor.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>`Tensor` representation of the discret Action Ouptut Shape.</returns>
         public Tensor<float> GetDiscreteActionOutputShape()
         {
             return (Tensor<float>)GetTensorByName(TensorNames.DiscreteActionOutputShape);

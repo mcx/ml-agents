@@ -163,7 +163,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// <summary>
         /// Get a dictionary indicating which Rigidbodies' poses are enabled or disabled.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>`Dictionary` indicating which Rigidbodies' poses are enabled or disabled.</returns>
         internal Dictionary<Rigidbody, bool> GetBodyPosesEnabled()
         {
             var bodyPosesEnabled = new Dictionary<Rigidbody, bool>(m_Bodies.Length);

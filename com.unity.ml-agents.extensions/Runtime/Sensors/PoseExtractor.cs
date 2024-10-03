@@ -136,7 +136,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// Get the parent index of the body at the specified index.
         /// </summary>
         /// <param name="index"></param>
-        /// <returns></returns>
+        /// <returns>The parent index of the body at the specified index.</returns>
         public int GetParentIndex(int index)
         {
             if (m_ParentIndices == null)
@@ -195,14 +195,14 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// Return the world space Pose of the i'th object.
         /// </summary>
         /// <param name="index"></param>
-        /// <returns></returns>
+        /// <returns>The world space Pose at given index.</returns>
         protected internal abstract Pose GetPoseAt(int index);
 
         /// <summary>
         /// Return the world space linear velocity of the i'th object.
         /// </summary>
         /// <param name="index"></param>
-        /// <returns></returns>
+        /// <returns>The world space linear velocity at given index.</returns>
         protected internal abstract Vector3 GetLinearVelocityAt(int index);
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// used for display in the inspector.
         /// </summary>
         /// <param name="index"></param>
-        /// <returns></returns>
+        /// <returns>The `Object` at given index.</returns>
         protected internal virtual Object GetObjectAt(int index)
         {
             return null;
@@ -285,7 +285,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// Compute the number of floats needed to represent the poses for the given PhysicsSensorSettings.
         /// </summary>
         /// <param name="settings"></param>
-        /// <returns></returns>
+        /// <returns>The number of floats needed to represent the poses for the given `PhysicsSensorSettings`.</returns>
         public int GetNumPoseObservations(PhysicsSensorSettings settings)
         {
             int obsPerPose = 0;
@@ -355,7 +355,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// <summary>
         /// Get a list of display nodes in depth-first order.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The display nodes.</returns>
         internal IList<DisplayNode> GetDisplayNodes()
         {
             if (NumPoses == 0)
@@ -434,7 +434,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// will equal the identity pose (within tolerance).
         /// </summary>
         /// <param name="pose"></param>
-        /// <returns></returns>
+        /// <returns>Inverse `Pose`.</returns>
         public static Pose Inverse(this Pose pose)
         {
             var rotationInverse = Quaternion.Inverse(pose.rotation);
@@ -447,7 +447,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// </summary>
         /// <param name="pose"></param>
         /// <param name="rhs"></param>
-        /// <returns></returns>
+        /// <returns>Multiplied `Pose`.</returns>
         public static Pose Multiply(this Pose pose, Pose rhs)
         {
             return rhs.GetTransformedBy(pose);
@@ -460,7 +460,7 @@ namespace Unity.MLAgents.Extensions.Sensors
         /// </summary>
         /// <param name="pose"></param>
         /// <param name="rhs"></param>
-        /// <returns></returns>
+        /// <returns>Multiplied `Pose`.</returns>
         public static Vector3 Multiply(this Pose pose, Vector3 rhs)
         {
             return pose.rotation * rhs + pose.position;

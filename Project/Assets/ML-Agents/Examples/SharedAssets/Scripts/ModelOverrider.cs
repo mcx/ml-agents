@@ -111,7 +111,6 @@ namespace Unity.MLAgentsExamples
         /// Get the asset path to use from the commandline arguments.
         /// Can be called multiple times - if m_HaveProcessedCommandLine is set, will have no effect.
         /// </summary>
-        /// <returns></returns>
         void GetAssetPathFromCommandLine()
         {
             if (m_HaveProcessedCommandLine)

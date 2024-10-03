@@ -20,6 +20,9 @@ namespace Unity.MLAgents.Sensors
 
         TensorShape m_TensorShape;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObservationWriter"/> class.
+        /// </summary>
         public ObservationWriter() { }
 
         /// <summary>
@@ -96,6 +99,11 @@ namespace Unity.MLAgents.Sensors
             }
         }
 
+        /// <summary>
+        /// Write access at the specified channel and width.
+        /// </summary>
+        /// <param name="ch">Channels</param>
+        /// <param name="w">Width</param>
         public float this[int ch, int w]
         {
             set
@@ -116,9 +124,9 @@ namespace Unity.MLAgents.Sensors
         /// <summary>
         /// 3D write access at the specified height, width, and channel.
         /// </summary>
-        /// <param name="h"></param>
-        /// <param name="w"></param>
-        /// <param name="ch"></param>
+        /// <param name="h">Height</param>
+        /// <param name="w">Width</param>
+        /// <param name="ch">Channels</param>
         public float this[int ch, int h, int w]
         {
             set

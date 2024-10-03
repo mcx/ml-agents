@@ -182,7 +182,7 @@ namespace Unity.MLAgents.Extensions.Input
         /// </summary>
         /// <param name="isInHeuristicMode">true if the Agent connected to this GameObject is working in
         /// Heuristic mode.</param>
-        /// <seealso cref="BehaviorParameters.IsInHeuristicMode"/>
+        /// <see cref="BehaviorParameters.IsInHeuristicMode"/>
         internal void UpdateDeviceBinding(bool isInHeuristicMode)
         {
             if (ReferenceEquals(m_Device, null))
@@ -259,7 +259,6 @@ namespace Unity.MLAgents.Extensions.Input
         /// </summary>
         /// <param name="defaultMap"></param>
         /// <param name="layoutName"></param>
-        /// <returns></returns>
         internal static void RegisterLayoutBuilder(InputActionMap defaultMap, string layoutName)
         {
             if (InputSystem.LoadLayout(layoutName) == null)

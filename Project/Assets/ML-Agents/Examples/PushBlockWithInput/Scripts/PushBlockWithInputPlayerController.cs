@@ -105,7 +105,7 @@ public class PushBlockWithInputPlayerController : MonoBehaviour, IInputActionAss
     /// listening to C# events, Unity Events, or receiving Messages from the Input System Package as those callbacks
     /// are set up through the generated <see cref="IInputActionCollection2"/>.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Corresponing action collection tuple.</returns>
     public (InputActionAsset, IInputActionCollection2) GetInputActionAsset()
     {
         LazyInitializeActions();
