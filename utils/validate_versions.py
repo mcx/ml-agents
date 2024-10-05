@@ -181,7 +181,7 @@ if __name__ == "__main__":
             print(f"Updating C# package to version {args.csharp_version}")
         if args.csharp_extensions_version:
             print(
-                f"Updating C# extensions package to version {args.csharp_extensions_version}-exp.1"
+                f"Updating C# extensions package to version {args.csharp_extensions_version}-preview"
             )
         set_version(
             args.python_version,
