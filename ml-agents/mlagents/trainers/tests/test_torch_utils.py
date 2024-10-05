@@ -11,8 +11,8 @@ from mlagents.trainers.settings import TorchSettings
     "device_str, expected_type, expected_index, expected_tensor_type",
     [
         ("cpu", "cpu", None, torch.float32),
-        ("cuda", "cuda", None, torch.cuda.FloatTensor),
-        ("cuda:42", "cuda", 42, torch.cuda.FloatTensor),
+        ("cuda", "cuda", None, torch.float32),
+        ("cuda:42", "cuda", 42, torch.float32),
         ("opengl", "opengl", None, torch.float32),
     ],
 )
