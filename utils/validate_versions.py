@@ -26,7 +26,6 @@ __release_tag__ = {release_tag}
 def _escape_non_none(s: Optional[str]) -> str:
     """
     Returns s escaped in quotes if it is non-None, els e "None"
-    Returns s escaped in quotes if it is non-None, els e "None"
     :param s:
     :return:
     """
